@@ -1,0 +1,30 @@
+{% extends 'expenses/base.html' %}
+
+{% block body %}
+
+<a id="#addclient" href="{% url 'addExpense' client_name %}"class="button success" style="margin-left:45%;margin-top:30px">Add Expense</a>
+<table class="table hovered" style="margin-top:20px">
+    <thead>
+        <tr>
+            <th class="text-center">TimeStamp</th>
+            <th class="text-center">Title</th>
+            <th class="text-center">Description</th>
+            <th class="text-center">Amount</th>
+            <th class="text-center">Currency</th>
+
+        </tr>
+    </thead>
+    
+    <tbody>
+            {% for client in expenses %}
+            <tr>
+                <td class="text-center">{{ client.timestampOfExpense}}</td>
+                <td class="text-center">{{ client.title}}</td>
+                <td class="text-center">{{ client.description}}</td>
+                <td class="text-center">{{ client.expense_currency}}</td>
+                <td class="text-center">{{ client.expense}}</td>
+            </tr>
+            {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

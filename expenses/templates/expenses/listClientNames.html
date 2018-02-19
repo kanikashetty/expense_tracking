@@ -1,0 +1,24 @@
+{% extends 'expenses/base.html' %}
+ {% block body%}
+ 
+<a id="#addclient" href="{% url 'addClient' %}"class="button success" style="margin-left:45%;margin-top:50px">Add New Client</a>
+ 
+
+<div class="shadow text-center" style="background-color:#f5f5f5;display:table ;margin: 10px auto;width:50%;border-radius: 3%;">
+        <nav class="sidebar" style="margin:auto;">
+                <ul>
+                    <li class="title" style="background-color: #1b6eae">Client Lists</li>
+                    {% for name in client %}
+                    <li><a href="{% url 'ClientExpenses' name %}"><i class="icon-smiley"></i>{{name}}</a></li>
+                    {%endfor%}
+                </ul>
+            </nav>
+        <div style="padding-bottom: 7%;margin-top: 8%;">
+              {%if msg%}<p style="display:none;margin-bottom: 5%;" class="fg-white message">{{msg}}</p>{%endif%}
+
+           </div>	
+</div>
+
+</div>
+
+{%endblock%}
